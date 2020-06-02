@@ -27,6 +27,14 @@ public class CooperativeController {
 	CooperativeRepo repo;
 	
 	
+	@GetMapping("/")
+    @ResponseBody
+    public String home() {
+      return "hello";
+      
+	}
+	
+	
 	@GetMapping("cooperatives")
 	@ResponseBody
 	public List<Cooperative> GetCooperatives()
