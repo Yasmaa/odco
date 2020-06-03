@@ -18,6 +18,7 @@ import java.util.Map;
 
 
 @RestController
+@CrossOrigin(origins = "https://frozen-savannah-57040.herokuapp.com/")
 public class RegionController {
 
   @Autowired
