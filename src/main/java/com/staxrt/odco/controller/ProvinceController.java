@@ -26,7 +26,7 @@ import java.util.Map;
 
 
 @RestController
-@CrossOrigin(origins = "https://frozen-savannah-57040.herokuapp.com/")
+@CrossOrigin(origins = "https://observatoryodco.herokuapp.com/")
 public class ProvinceController {
 
   @Autowired
