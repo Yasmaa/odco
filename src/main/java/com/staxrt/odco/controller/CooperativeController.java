@@ -31,7 +31,7 @@ public class CooperativeController {
 	@GetMapping("/")
     @ResponseBody
     public String home() {
-      return "hello";
+      return "  ODCO API";
       
 	}
 	
