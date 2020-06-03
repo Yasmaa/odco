@@ -109,6 +109,10 @@ public class Cooperative implements Serializable {
     @Column(name = "employee_hommes", nullable = false)
     private int employeeHommes;
     
+    @NotNull
+    @Column(name = "capitale", nullable = false)
+    private int capital;
+    
     @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCooperative")
     private Collection<Chiffreaffaire> chiffreaffaireCollection;
@@ -282,8 +286,19 @@ public class Cooperative implements Serializable {
     public void setIdSecteur(Secteur idSecteur) {
         this.idSecteur = idSecteur;
     }
+    
+    
+    
 
-    @Override
+    public int getCapital() {
+		return capital;
+	}
+
+	public void setCapital(int capital) {
+		this.capital = capital;
+	}
+
+	@Override
     public int hashCode() {
         int hash = 0;
         hash += (idCoop != null ? idCoop.hashCode() : 0);

@@ -17,6 +17,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 
 
@@ -104,6 +105,8 @@ public class CooperativeController {
 		return cp;
 	}
 	
+	
+	
 
 	@GetMapping("cooperatives/ct/{id}")
 	@ResponseBody
@@ -132,6 +135,25 @@ public class CooperativeController {
 		return cp;
 	}
 	
+	@GetMapping("cooperatives/{name}")
+	@ResponseBody
+	public List<Cooperative> GetCooperativeByName(@PathVariable("name") String nomcoop)
+	{
+		
+		List<Cooperative> cp = repo.findByNomCoop(nomcoop);
+		return cp;
+	}
+	
+	
+	@GetMapping("cooperatives/nbrcoop")
+	@ResponseBody
+	public Integer getNbrCoop()
+	{
+		
+		Integer cp = repo.SumCoop();
+		return cp;
+	}
+	
 	@GetMapping("cooperatives/{adresse}")
 	@ResponseBody
 	public List<Cooperative> GetCooperativesbyad(@PathVariable("adresse") String ad)
@@ -149,6 +171,17 @@ public class CooperativeController {
 		Collection<Cooperative> cp = repo.findTotalcpSc();
 		return cp;
 	}
+	
+	@GetMapping("cooperatives/nbrAd")
+	@ResponseBody
+	public Integer getNbrAd()
+	{
+		
+		Integer cp = repo.NombAdhr();
+		return cp;
+	}
+	
+	
 	
 	@PostMapping(path = "/cooperatives")
 	public Cooperative AddCooperative(@Valid @RequestBody Cooperative cp)

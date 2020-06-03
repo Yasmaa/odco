@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,6 +32,12 @@ public class SecteurController {
   @GetMapping("/secteurs")
   public List<Secteur> getAllsecteurs() {
       List<Secteur> sc = repo.findAll();
+	  return sc;
+  }
+  
+  @GetMapping("/secteurs/Totalsec")
+  public Collection<Secteur> getTest() {
+      Collection<Secteur> sc = repo.findTotaladhBysec();
 	  return sc;
   }
   

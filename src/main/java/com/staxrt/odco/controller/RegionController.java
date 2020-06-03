@@ -6,9 +6,12 @@ import org.springframework.web.bind.annotation.*;
 
 import com.staxrt.odco.exception.ResourceNotFoundException;
 import com.staxrt.odco.model.Region;
+import com.staxrt.odco.model.Secteur;
 import com.staxrt.odco.repository.RegionRepo;
 
 import javax.validation.Valid;
+
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,6 +43,12 @@ public class RegionController {
             .findById(id)
             .orElseThrow(() -> new ResourceNotFoundException("region not found on :: " + id));
     return ResponseEntity.ok().body(rg);
+  }
+  
+  @GetMapping("/regions/Totalreg")
+  public Collection<Region> getTest() {
+      Collection<Region> sc = repo.findTotaladhByreg();
+	  return sc;
   }
 
  

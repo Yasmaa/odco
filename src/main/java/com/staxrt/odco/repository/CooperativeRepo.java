@@ -78,6 +78,25 @@ public interface CooperativeRepo extends JpaRepository<Cooperative, Integer> {
 			  
 	List<Cooperative> findTotalcpSc();
 	
+	@Query(value=
+
+			   "SELECT c FROM Cooperative c WHERE c.nomCoop = :nomCoop")
+	
+	List<Cooperative> findByNomCoop(String nomCoop);
+
+	@Query(value =
+	           "SELECT Count(c.idCoop) FROM Cooperative c " )
+			  
+	Integer SumCoop();
+	
+	
+	@Query(value =
+	           "SELECT SUM(c.employeeFemmes)+Sum(c.employeeHommes) FROM Cooperative c " )
+			  
+	Integer NombAdhr();
+	
+	
+	
 	
 
 }

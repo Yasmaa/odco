@@ -1,5 +1,6 @@
 package com.staxrt.odco.repository;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -19,6 +20,14 @@ public interface SecteurRepo extends JpaRepository<Secteur, Integer> {
 	                   " Secteur v GROUP BY v.idSecteur" )
 			  
 	List<Secteur> findAllcp();
+	
+	@Query(value =
+	           "SELECT " +
+	                   "v.nomSec ,c.capital,count(c.idCoop),sum(c.employeeFemmes+c.employeeHommes)" +
+	                   " FROM" +
+	                   " Secteur v,Cooperative c where  v.idSecteur = c.idSecteur  GROUP BY v.nomSec" )
+			  
+	Collection<Secteur> findTotaladhBysec();
 
 
 }

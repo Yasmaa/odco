@@ -43,6 +43,8 @@ public class Secteur implements Serializable {
     @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idSecteur")
     private Collection<Cooperative> cooperativeCollection;
+    
+    
 
     public Secteur() {
     }
@@ -80,8 +82,13 @@ public class Secteur implements Serializable {
     public void setCooperativeCollection(Collection<Cooperative> cooperativeCollection) {
         this.cooperativeCollection = cooperativeCollection;
     }
+    
+    
+    
 
-    @Override
+   
+
+	@Override
     public int hashCode() {
         int hash = 0;
         hash += (idSecteur != null ? idSecteur.hashCode() : 0);

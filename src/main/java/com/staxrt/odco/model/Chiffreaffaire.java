@@ -24,18 +24,14 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 @Entity
 @Table(name = "chiffreaffaire")
 @XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Chiffreaffaire.findAll", query = "SELECT c FROM Chiffreaffaire c"),
-    @NamedQuery(name = "Chiffreaffaire.findByIdchiffreAffaire", query = "SELECT c FROM Chiffreaffaire c WHERE c.idchiffreAffaire = :idchiffreAffaire"),
-    @NamedQuery(name = "Chiffreaffaire.findByValeur", query = "SELECT c FROM Chiffreaffaire c WHERE c.valeur = :valeur"),
-    @NamedQuery(name = "Chiffreaffaire.findByDate", query = "SELECT c FROM Chiffreaffaire c WHERE c.date = :date")})
+    
 public class Chiffreaffaire implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id_chiffreAffaire", nullable = false)
-    private Integer idchiffreAffaire;
+    @Column(name = "id_chiffre_affaire", nullable = false)
+    private Integer id;
     @Basic(optional = false)
     @NotNull
     @Column(name = "valeur", nullable = false)
@@ -55,21 +51,21 @@ public class Chiffreaffaire implements Serializable {
     }
 
     public Chiffreaffaire(Integer idchiffreAffaire) {
-        this.idchiffreAffaire = idchiffreAffaire;
+        this.id = idchiffreAffaire;
     }
 
     public Chiffreaffaire(Integer idchiffreAffaire, double valeur, Date date) {
-        this.idchiffreAffaire = idchiffreAffaire;
+        this.id = idchiffreAffaire;
         this.valeur = valeur;
         this.date = date;
     }
 
-    public Integer getIdchiffreAffaire() {
-        return idchiffreAffaire;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdchiffreAffaire(Integer idchiffreAffaire) {
-        this.idchiffreAffaire = idchiffreAffaire;
+    public void setId(Integer idchiffreAffaire) {
+        this.id = idchiffreAffaire;
     }
 
     public double getValeur() {
@@ -99,7 +95,7 @@ public class Chiffreaffaire implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idchiffreAffaire != null ? idchiffreAffaire.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -110,7 +106,7 @@ public class Chiffreaffaire implements Serializable {
             return false;
         }
         Chiffreaffaire other = (Chiffreaffaire) object;
-        if ((this.idchiffreAffaire == null && other.idchiffreAffaire != null) || (this.idchiffreAffaire != null && !this.idchiffreAffaire.equals(other.idchiffreAffaire))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -118,7 +114,7 @@ public class Chiffreaffaire implements Serializable {
 
     @Override
     public String toString() {
-        return "co.entities.Chiffreaffaire[ idchiffreAffaire=" + idchiffreAffaire + " ]";
+        return "co.entities.Chiffreaffaire[ idchiffreAffaire=" + id + " ]";
     }
     
 }
