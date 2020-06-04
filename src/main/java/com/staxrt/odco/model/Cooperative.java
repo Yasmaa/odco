@@ -103,11 +103,11 @@ public class Cooperative implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "employee_femmes", nullable = false)
-    private int employeeFemmes;
+    private Double employeeFemmes;
     @Basic(optional = false)
     @NotNull
     @Column(name = "employee_hommes", nullable = false)
-    private int employeeHommes;
+    private Double employeeHommes;
     
     @NotNull
     @Column(name = "capitale", nullable = false)
@@ -143,7 +143,7 @@ public class Cooperative implements Serializable {
         this.idCoop = idCoop;
     }
 
-    public Cooperative(Integer idCoop, String nomCoop, String image, String nomResponsable, String adresse, String dateCreation, String fax, String telephone, String description, int employeeFemmes, int employeeHommes) {
+    public Cooperative(Integer idCoop, String nomCoop, String image, String nomResponsable, String adresse, String dateCreation, String fax, String telephone, String description, Double employeeFemmes, Double employeeHommes) {
         this.idCoop = idCoop;
         this.nomCoop = nomCoop;
         this.image = image;
@@ -229,19 +229,19 @@ public class Cooperative implements Serializable {
         this.description = description;
     }
 
-    public int getEmployeeFemmes() {
+    public Double getEmployeeFemmes() {
         return employeeFemmes;
     }
 
-    public void setEmployeeFemmes(int employeeFemmes) {
+    public void setEmployeeFemmes(Double employeeFemmes) {
         this.employeeFemmes = employeeFemmes;
     }
 
-    public int getEmployeeHommes() {
+    public Double getEmployeeHommes() {
         return employeeHommes;
     }
 
-    public void setEmployeeHommes(int employeeHommes) {
+    public void setEmployeeHommes(Double employeeHommes) {
         this.employeeHommes = employeeHommes;
     }
 

@@ -182,6 +182,32 @@ public class CooperativeController {
 		return cp;
 	}
 	
+	@GetMapping("/cooperatives/pourcentage")
+	@ResponseBody
+	public List<Double> pourcentageAdPrSec()
+	{
+		double x = repo.NombAdhr();
+		List<Double> cp = repo.pourcentAdherantSecteur();
+		
+		for (int i=0; i < cp.size() ; i++ ) {
+			double j = (double)(1/x) * cp.get(i);
+	            double a=j*100;
+	           
+	            cp.set(i,a);
+	        }
+
+		return cp;
+	}
+	
+	
+	@GetMapping("cooperatives/capitalTotal")
+	@ResponseBody
+	public Integer capitalTo() {
+		
+		Integer cp = repo.capitalTo();
+		return cp;
+	}
+	
 	
 	
 	@PostMapping(path = "/cooperatives")

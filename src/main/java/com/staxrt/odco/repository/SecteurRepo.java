@@ -28,6 +28,15 @@ public interface SecteurRepo extends JpaRepository<Secteur, Integer> {
 	                   " Secteur v,Cooperative c where  v.idSecteur = c.idSecteur  GROUP BY v.nomSec" )
 			  
 	Collection<Secteur> findTotaladhBysec();
+	
+	@Query(value =
+	           "SELECT " +
+	                   "v.nomSec ,c.capital*100/sum(u.capital),count(c.idCoop)*100/count(u.idCoop),sum(c.employeeFemmes+c.employeeHommes)*100/sum(u.employeeFemmes+u.employeeHommes)" +
+	                   " FROM" +
+	                   " Secteur v,Cooperative c,Cooperative u where  v.idSecteur = c.idSecteur and u.idCoop = c.idCoop  GROUP BY v.nomSec" )
+			  
+	Collection<Secteur> findTotalPBysec();
+	
 
 
 }

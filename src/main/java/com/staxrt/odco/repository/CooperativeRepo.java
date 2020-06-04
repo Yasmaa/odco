@@ -96,6 +96,17 @@ public interface CooperativeRepo extends JpaRepository<Cooperative, Integer> {
 	Integer NombAdhr();
 	
 	
+	@Query(value =
+	           "SELECT (c.employeeFemmes+c.employeeHommes) FROM Cooperative c, Secteur s WHERE c.idSecteur = s.idSecteur GROUP BY s.idSecteur" )
+			  
+	List<Double> pourcentAdherantSecteur();
+	
+	
+	@Query(value =
+	           "SELECT SUM(c.capital) FROM Cooperative c " )
+			  
+	Integer  capitalTo();
+	
 	
 	
 

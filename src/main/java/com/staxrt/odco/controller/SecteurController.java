@@ -43,6 +43,13 @@ public class SecteurController {
 	  return sc;
   }
   
+  @GetMapping("/secteurs/persec")
+  public Collection<Secteur> getTest1() {
+      Collection<Secteur> sc = repo.findTotalPBysec();
+	  return sc;
+  }
+  
+  
   @GetMapping("/cparsecteurs")
   public List<Secteur> getAllCparsecteurs() {
       List<Secteur> sc = repo.findAllcp();
